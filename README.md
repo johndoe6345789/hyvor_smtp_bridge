@@ -18,7 +18,9 @@ Reference: Hyvor Relay docs for sending emails via API:
 
 ## Quick start
 
-1) Create a Hyvor Relay API key with scope `sends.send`.
+1) Create a Hyvor Relay API key with scope `sends.send`. In the Hyvor Relay
+   admin console (`/sudo/`), go to **Settings → API Keys → Console** to create
+   and copy the key value.
 
 2) Install dependencies:
 
@@ -41,6 +43,18 @@ pip install -r requirements.txt
 
 ```bash
 python -m smtp_bridge.main
+```
+
+### Docker
+
+You can run the published GHCR image instead of installing dependencies
+locally:
+
+```bash
+docker run \
+  -e HYVOR_API_KEY=your_api_key \
+  -p 2525:2525 \
+  ghcr.io/johndoe6345789/hyvor_smtp_bridge:latest
 ```
 
 ## Notes
